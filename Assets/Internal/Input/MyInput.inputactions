@@ -1,0 +1,45 @@
+{
+    "name": "MyInput",
+    "maps": [
+        {
+            "name": "FirstInput",
+            "id": "d4dd28d4-c5f4-41c1-bc23-043311284466",
+            "actions": [
+                {
+                    "name": "Tab",
+                    "type": "Button",
+                    "id": "def63401-2d97-442c-9272-ebcb3bc0b3bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9aef816e-4784-4719-9b2d-dba063625965",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e456f447-c9ce-4062-98bd-2ce0b7702f06",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
