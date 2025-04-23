@@ -61,8 +61,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Internal\Scripts\SO\TankSO.cs" />
     <Compile Include="Assets\Internal\Input\MyInput.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\MyTest.cs" />
+    <Compile Include="Assets\Internal\Scripts\Model\TankModel.cs" />
     <Compile Include="Assets\Internal\Scripts\InputScript\InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -544,6 +546,10 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

@@ -1,0 +1,26 @@
+[
+  {
+    "tankName": "NormalTank",
+    "attackPower": 30,
+    "speed": 10.0,
+    "hp": 100,
+    "range": 5,
+    "attackRange": 1.0
+  },
+  {
+    "tankName": "FastTank",
+    "attackPower": 15,
+    "speed": 20.0,
+    "hp": 50,
+    "range": 5,
+    "attackRange": 0.5
+  },
+  {
+    "tankName": "DefenceTank",
+    "attackPower": 20,
+    "speed": 5.0,
+    "hp": 200,
+    "range": 5,
+    "attackRange": 1.5
+  }
+]
