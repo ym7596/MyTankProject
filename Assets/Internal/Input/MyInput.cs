@@ -99,6 +99,15 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pos"",
+                    ""type"": ""Value"",
+                    ""id"": ""c4a5fc9e-a3de-4a73-a865-e244e5d2b6e5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,17 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
                     ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bffea2c-fbe7-49c8-bba6-6497f124181a"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -132,6 +152,7 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         // FirstInput
         m_FirstInput = asset.FindActionMap("FirstInput", throwIfNotFound: true);
         m_FirstInput_Tab = m_FirstInput.FindAction("Tab", throwIfNotFound: true);
+        m_FirstInput_Pos = m_FirstInput.FindAction("Pos", throwIfNotFound: true);
     }
 
     ~@MyInput()
@@ -213,6 +234,7 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_FirstInput;
     private List<IFirstInputActions> m_FirstInputActionsCallbackInterfaces = new List<IFirstInputActions>();
     private readonly InputAction m_FirstInput_Tab;
+    private readonly InputAction m_FirstInput_Pos;
     /// <summary>
     /// Provides access to input actions defined in input action map "FirstInput".
     /// </summary>
@@ -228,6 +250,10 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FirstInput/Tab".
         /// </summary>
         public InputAction @Tab => m_Wrapper.m_FirstInput_Tab;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstInput/Pos".
+        /// </summary>
+        public InputAction @Pos => m_Wrapper.m_FirstInput_Pos;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -257,6 +283,9 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
             @Tab.started += instance.OnTab;
             @Tab.performed += instance.OnTab;
             @Tab.canceled += instance.OnTab;
+            @Pos.started += instance.OnPos;
+            @Pos.performed += instance.OnPos;
+            @Pos.canceled += instance.OnPos;
         }
 
         /// <summary>
@@ -271,6 +300,9 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
             @Tab.started -= instance.OnTab;
             @Tab.performed -= instance.OnTab;
             @Tab.canceled -= instance.OnTab;
+            @Pos.started -= instance.OnPos;
+            @Pos.performed -= instance.OnPos;
+            @Pos.canceled -= instance.OnPos;
         }
 
         /// <summary>
@@ -318,5 +350,12 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTab(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pos" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPos(InputAction.CallbackContext context);
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Internal\Scripts\Test\MyTest.cs" />
     <Compile Include="Assets\Internal\Scripts\Model\TankModel.cs" />
     <Compile Include="Assets\Internal\Scripts\InputScript\InputManager.cs" />
+    <Compile Include="Assets\Internal\Scripts\Test\RaycastTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
