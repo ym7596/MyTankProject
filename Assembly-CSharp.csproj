@@ -63,10 +63,13 @@
   <ItemGroup>
     <Compile Include="Assets\Internal\Scripts\SO\TankSO.cs" />
     <Compile Include="Assets\Internal\Input\MyInput.cs" />
+    <Compile Include="Assets\Internal\Scripts\Manager\SceneManagerController.cs" />
+    <Compile Include="Assets\Internal\Scripts\Utils\SingleTon.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\MyTest.cs" />
     <Compile Include="Assets\Internal\Scripts\Model\TankModel.cs" />
     <Compile Include="Assets\Internal\Scripts\InputScript\InputManager.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\RaycastTest.cs" />
+    <Compile Include="Assets\Internal\Scripts\Test\TagTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -545,12 +548,12 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

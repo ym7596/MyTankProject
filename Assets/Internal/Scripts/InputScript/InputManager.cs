@@ -77,8 +77,8 @@ public class InputManager : MonoBehaviour
     private void OnTabCanceled(InputAction.CallbackContext context) 
     {
         rayHit = GetRayhit(Pos);
-        if(rayHit.collider != null)
-            Debug.Log(rayHit.collider.name);
+        //if(rayHit.collider != null)
+        //    Debug.Log(rayHit.collider.name);
         tabState = TabState.Canceld;
         onAction_TabState?.Invoke(tabState);
     }
@@ -96,9 +96,9 @@ public class InputManager : MonoBehaviour
 
     #endregion
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        rayHit = default;
     }
 
 
