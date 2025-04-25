@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
     public RaycastHit rayHit { get; private set; }
 
     public Vector2 Pos { get; private set; }
+    public Vector2 moveVector { get; private set; } = Vector2.zero;
 
     public bool IsUITouched { get; private set; } = false;
 
@@ -43,6 +44,9 @@ public class InputManager : MonoBehaviour
         _myInput.FirstInput.Tab.canceled += OnTabCanceled;
 
         _myInput.FirstInput.Pos.performed += OnPosStart;
+
+        _myInput.FirstInput.Move.performed += WASDMovePerformed;
+        _myInput.FirstInput.Move.canceled += WASDMoveCanceled;
     }
 
     private void OnDisable()
@@ -52,6 +56,9 @@ public class InputManager : MonoBehaviour
         _myInput.FirstInput.Tab.canceled -= OnTabCanceled;
 
         _myInput.FirstInput.Pos.performed -= OnPosStart;
+
+        _myInput.FirstInput.Move.performed -= WASDMovePerformed;
+        _myInput.FirstInput.Move.canceled -= WASDMoveCanceled;
     }
     //터치하는 세단계
     //started  <-> performed <-> canceled
@@ -92,13 +99,35 @@ public class InputManager : MonoBehaviour
        // Debug.Log(Pos);
     }
 
-   
+
+
+    #endregion
+
+    #region WASD MOVE
+
+    private void WASDMovePerformed(InputAction.CallbackContext context)
+    {
+        moveVector = context.ReadValue<Vector2>();
+        Debug.Log(moveVector);
+
+        // Up (0,1)
+        // Left (-1,0)
+        // Down (0,-1)
+        //Right (1,0)
+    }
+
+    private void WASDMoveCanceled(InputAction.CallbackContext context)
+    {
+        moveVector = Vector2.zero;
+     
+    }
 
     #endregion
     // Update is called once per frame
     void LateUpdate()
     {
         rayHit = default;
+       
     }
 
 

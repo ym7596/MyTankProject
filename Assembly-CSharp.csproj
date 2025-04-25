@@ -63,12 +63,14 @@
   <ItemGroup>
     <Compile Include="Assets\Internal\Scripts\SO\TankSO.cs" />
     <Compile Include="Assets\Internal\Input\MyInput.cs" />
+    <Compile Include="Assets\Internal\Scripts\Test\MoveRigidbody.cs" />
     <Compile Include="Assets\Internal\Scripts\Manager\SceneManagerController.cs" />
     <Compile Include="Assets\Internal\Scripts\Utils\SingleTon.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\MyTest.cs" />
     <Compile Include="Assets\Internal\Scripts\Model\TankModel.cs" />
     <Compile Include="Assets\Internal\Scripts\InputScript\InputManager.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\RaycastTest.cs" />
+    <Compile Include="Assets\Internal\Scripts\Test\MoveTranslate.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\TagTest.cs" />
   </ItemGroup>
   <ItemGroup>

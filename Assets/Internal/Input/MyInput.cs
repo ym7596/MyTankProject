@@ -108,6 +108,15 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""5d40de8e-3482-4461-bf1f-ea4612809cef"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -143,6 +152,61 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
                     ""action"": ""Pos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""20ecb59f-0a7a-4f24-981c-e27dd3ad2744"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9dd61484-cca9-427f-b135-87a6c5283bb5"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""59351077-5bd2-4ee6-a0a6-3130a1f77f61"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""87e2bd04-acb1-4a1b-acaf-318cf3a071d9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a6c0f9e3-59a0-4184-9c13-eb12e31b7e61"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -153,6 +217,7 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         m_FirstInput = asset.FindActionMap("FirstInput", throwIfNotFound: true);
         m_FirstInput_Tab = m_FirstInput.FindAction("Tab", throwIfNotFound: true);
         m_FirstInput_Pos = m_FirstInput.FindAction("Pos", throwIfNotFound: true);
+        m_FirstInput_Move = m_FirstInput.FindAction("Move", throwIfNotFound: true);
     }
 
     ~@MyInput()
@@ -235,6 +300,7 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
     private List<IFirstInputActions> m_FirstInputActionsCallbackInterfaces = new List<IFirstInputActions>();
     private readonly InputAction m_FirstInput_Tab;
     private readonly InputAction m_FirstInput_Pos;
+    private readonly InputAction m_FirstInput_Move;
     /// <summary>
     /// Provides access to input actions defined in input action map "FirstInput".
     /// </summary>
@@ -254,6 +320,10 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FirstInput/Pos".
         /// </summary>
         public InputAction @Pos => m_Wrapper.m_FirstInput_Pos;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstInput/Move".
+        /// </summary>
+        public InputAction @Move => m_Wrapper.m_FirstInput_Move;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -286,6 +356,9 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
             @Pos.started += instance.OnPos;
             @Pos.performed += instance.OnPos;
             @Pos.canceled += instance.OnPos;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
         }
 
         /// <summary>
@@ -303,6 +376,9 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
             @Pos.started -= instance.OnPos;
             @Pos.performed -= instance.OnPos;
             @Pos.canceled -= instance.OnPos;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
         }
 
         /// <summary>
@@ -357,5 +433,12 @@ public partial class @MyInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPos(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMove(InputAction.CallbackContext context);
     }
 }
