@@ -13,10 +13,7 @@ public class SceneManagerController : SingleTon<SceneManagerController>
         Debug.Log("SceneManagerController Awake");
     }
 
-    public void SetTargetScene(SceneName sceneName)
-    {
-        targetSceneName = sceneName;
-    }
+  
 
     public void LoadScene(SceneName sceneName)
     {
