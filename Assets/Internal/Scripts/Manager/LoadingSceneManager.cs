@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadingSceneManager : MonoBehaviour
 {
+
+    public event Action<float> onAction_progress;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,20 +19,32 @@ public class LoadingSceneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(
-            SceneManagerController.Instance.targetSceneName.ToString()
-            );
+        SceneManagerController.Instance.LoadSceneAsync();
+
+        AsyncOperation asyncLoad = SceneManagerController.Instance.AsyncOperation;
 
         asyncLoad.allowSceneActivation = false;
 
-        while (asyncLoad.progress < 0.9f)
+        float fakeProgress = 0f;
+
+        while (asyncLoad.isDone == false)
         {
-            Debug.Log($"Loading progress: {asyncLoad.progress}");
+            float targetProgress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
+
+            fakeProgress = Mathf.MoveTowards(fakeProgress, targetProgress, Time.deltaTime);
+
+            //Debug.Log($"Loading progress: {asyncLoad.progress}");
+            onAction_progress?.Invoke(asyncLoad.progress);
+
+            if(asyncLoad.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(0.5f);
+                asyncLoad.allowSceneActivation = true;
+            }
+
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
-
-        asyncLoad.allowSceneActivation = true;
+        
     }
 }
