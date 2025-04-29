@@ -4,7 +4,7 @@ public class TankControllerDev : BaseNav
 {
     [SerializeField] private Transform _targetPos;
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
     }

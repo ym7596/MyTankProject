@@ -6,7 +6,7 @@ public class BaseNav : MonoBehaviour
 {
     protected NavMeshAgent _agent;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
     }
