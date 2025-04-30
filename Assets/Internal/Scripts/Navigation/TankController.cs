@@ -16,9 +16,18 @@ public class TankController : BaseNav
     private TankState state = TankState.None;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    [SerializeField] private GameObject _projectile;
+    [SerializeField] private Transform _firePosition;
+
     public Transform targetPos;
 
+    public Vector3 shootDirection = new Vector3(45, 0, 0);
 
+    public float force = 150f;
+
+    public float fireInterval = 2f;
+
+    private float timer = 0f;
 
     protected override void Awake()
     {
@@ -52,6 +61,12 @@ public class TankController : BaseNav
             case TankState.Guard:
                 {
                     _agent.isStopped = true;
+                    timer += Time.deltaTime;
+                    if (timer > fireInterval) 
+                    {
+                        Fire();
+                        timer = 0f;
+                    }
                     break;
                 }
             case TankState.Attack:
@@ -64,6 +79,20 @@ public class TankController : BaseNav
                 }
             default:
                 break;
+        }
+    }
+
+    private void Fire()
+    {
+        GameObject proj = Instantiate(_projectile, _firePosition.position, Quaternion.identity);
+
+        Rigidbody rigid = proj.GetComponent<Rigidbody>();
+
+        if(rigid != null)
+        {
+            Vector3 ShootDir = Quaternion.Euler(shootDirection) * Vector3.forward;
+
+            rigid.AddForce(ShootDir * force);
         }
     }
 

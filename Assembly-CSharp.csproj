@@ -71,6 +71,7 @@
     <Compile Include="Assets\Internal\Scripts\Manager\LoadingSceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Internal\Scripts\Navigation\TankController.cs" />
+    <Compile Include="Assets\Internal\Scripts\Bullets\BulletDev.cs" />
     <Compile Include="Assets\Internal\Scripts\Test\MoveRigidbody.cs" />
     <Compile Include="Assets\Internal\Scripts\Config\Config.cs" />
     <Compile Include="Assets\Internal\Scripts\Manager\SceneManagerController.cs" />
