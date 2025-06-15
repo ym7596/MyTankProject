@@ -8,9 +8,12 @@ public class BulletDev : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Destroy(gameObject);
+           
+            MissileManager.Instance.RemoveMissile(this.gameObject);
+            
             var effect = Instantiate(_effect,transform.position, Quaternion.identity);
             Destroy(effect, 2f);
+            Destroy(gameObject);
         }
     }
 }
